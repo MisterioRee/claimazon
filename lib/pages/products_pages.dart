@@ -1,6 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:claimazon/components/custom_shimmer.dart';
+import 'package:claimazon/components/product_card.dart';
 import 'package:claimazon/models/Product.dart';
+import 'package:claimazon/pages/product_details_page.dart';
 import 'package:claimazon/services/product_service.dart';
 import 'package:claimazon/theme/theme_colors.dart';
 import 'package:claimazon/theme/theme_styles.dart';
@@ -16,77 +18,13 @@ class ProductsListPage extends StatelessWidget {
   }
 
   Widget _buildGridProduct(Product product) {
-    return SizedBox(
-      height: 250,
-      width: 180,
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Card(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: () {},
-                  child: SizedBox(
-                    height: 120,
-                    width: 180,
-                    child: CachedNetworkImage(
-                      imageUrl: "${product.image}",
-                      fit: BoxFit.cover,
-                      placeholder: (context, url) => CustomShimmer(),
-                      errorWidget: (context, url, error) => Icon(Icons.error),
-                    ),
-                  ),
-                ),
-                GestureDetector(
-                  onTap: () {},
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Divider(),
-                        Text(
-                          "${product.title}",
-                          style: ThemeStyles.kLabelStyle,
-                          maxLines: 2,
-                          overflow: TextOverflow.clip,
-                        ),
-                        SizedBox(height: 10),
-                        Text(
-                          "${product.description}",
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
-                          style: ThemeStyles.kMiniHint,
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      "\$${product.price}",
-                      style: ThemeStyles.kHintTextStyle,
-                    ),
-                    GestureDetector(
-                      onTap: () {},
-                      child: FaIcon(
-                        FontAwesomeIcons.solidHeart,
-                        color: ThemeColor.primeryColor,
-                      ),
-                    )
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
-      ),
+    return ProductCard(
+      product: product,
+      onTap: () {
+        Get.to(() => ProductDetailsPage(
+              product: product,
+            ));
+      },
     );
   }
 
@@ -199,7 +137,7 @@ class ProductsListPage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  if (!_.isLoadingMore)
+                  if (_.isLoadingMore)
                     Expanded(
                       flex: 1,
                       child: Center(

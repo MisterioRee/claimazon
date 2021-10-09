@@ -43,10 +43,12 @@ dependencies:
   google_fonts:
   #QR Code
   qr_flutter:
-  #Cashced images
+  #Cashed images
   cached_network_image:
   #International Phone Number
   intl_phone_field: ^2.0.1
+  #product details page
+  flutter_rating_bar: ^4.0.0
 
 dev_dependencies:
   flutter_test:

@@ -4,6 +4,7 @@ import 'package:claimazon/controller/http_controller.dart';
 import 'package:claimazon/models/Product.dart';
 import 'package:claimazon/utilities/server.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:get/get_connect/http/src/status/http_status.dart';
@@ -30,7 +31,10 @@ class ProductsService extends GetxController {
   }
 
   Future<void> fetchPage() async {
-    if (haveMoreData && !isLoadingMore) {
+    if (haveMoreData &&
+        !isLoadingMore &&
+        scrollController.position.userScrollDirection ==
+            ScrollDirection.reverse) {
       _setLoadingMore(true);
       this._currentPage++;
       final newItems = await fetchProducts(page: _currentPage);

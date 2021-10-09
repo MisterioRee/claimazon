@@ -1,5 +1,5 @@
 import 'package:claimazon/components/buttons.dart';
-import 'package:claimazon/components/checkBoxes.dart';
+import 'package:claimazon/components/check_boxes.dart';
 import 'package:claimazon/components/custom_shimmer.dart';
 import 'package:claimazon/components/text_fields.dart';
 import 'package:claimazon/pages/home_page.dart';
