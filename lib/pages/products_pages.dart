@@ -12,7 +12,7 @@ class ProductsListPage extends StatelessWidget {
   final _ = Get.put(ProductsService());
 
   ProductsListPage() {
-    _.fetchProducts();
+    _.initialFetch();
   }
 
   Widget _buildGridProduct(Product product) {
@@ -185,12 +185,29 @@ class ProductsListPage extends StatelessWidget {
                 baseColor: Colors.grey[300],
                 highlightColor: Colors.grey[100],
               )
-            : GridView.count(
-                crossAxisCount: 2,
-                shrinkWrap: true,
-                childAspectRatio: 0.7,
+            : Column(
                 children: [
-                  ..._.products.map((e) => _buildGridProduct(e)),
+                  Expanded(
+                    flex: 9,
+                    child: GridView.count(
+                      controller: _.scrollController,
+                      crossAxisCount: 2,
+                      shrinkWrap: true,
+                      childAspectRatio: 0.7,
+                      children: [
+                        ..._.products.map((e) => _buildGridProduct(e)),
+                      ],
+                    ),
+                  ),
+                  if (!_.isLoadingMore)
+                    Expanded(
+                      flex: 1,
+                      child: Center(
+                        child: CircularProgressIndicator(
+                          color: ThemeColor.primeryColor,
+                        ),
+                      ),
+                    )
                 ],
               ),
       ),
