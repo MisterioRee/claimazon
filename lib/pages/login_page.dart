@@ -94,7 +94,7 @@ class LoginPage extends StatelessWidget {
       textStyle: ThemeStyles.kLabelStyleWhite,
       bgColor: ThemeColor.primeryColor,
       onClick: () {
-        Get.to(HomePage());
+        Get.offAll(HomePage());
       },
     );
   }
