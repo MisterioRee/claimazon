@@ -1,3 +1,16 @@
+///
+/// This file contains business logic for products list page
+/// since we want to separate and split the code in multiple files
+/// for ease to understand, we can manage the state based on this service
+///
+/// Author: Muhammad Rehan
+/// email: mrmuhammadrehan65@gmail.com
+///
+/// This code is subjected to an assment, you might want to
+/// copy this code and modify as your own need, you are free to
+/// use this code as your own.
+///
+
 import 'dart:convert';
 
 import 'package:claimazon/controller/http_controller.dart';

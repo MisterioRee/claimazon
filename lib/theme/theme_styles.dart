@@ -1,3 +1,14 @@
+///
+/// This file contains Theme styles for quick usage in application
+///
+/// Author: Muhammad Rehan
+/// email: mrmuhammadrehan65@gmail.com
+///
+/// This code is subjected to an assment, you might want to
+/// copy this code and modify as your own need, you are free to
+/// use this code as your own.
+///
+
 import 'package:claimazon/theme/theme_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';

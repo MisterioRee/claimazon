@@ -1,3 +1,16 @@
+///
+/// This file contains commonly used methods to send request to severs,
+/// hence it is required in most cases to attach headers etc we can setup
+/// globally here
+///
+/// Author: Muhammad Rehan
+/// email: mrmuhammadrehan65@gmail.com
+///
+/// This code is subjected to an assment, you might want to
+/// copy this code and modify as your own need, you are free to
+/// use this code as your own.
+///
+
 import 'dart:io';
 import 'package:http/http.dart' as http;
 
