@@ -24,6 +24,10 @@ To perform screening test
   flutter_rating_bar: ^4.0.0
 ```
 
+## Fake API
+
+To fake the behaviour of the API/Server response i used mockapi.io to show real effects
+
 # Follow Up Questions
 
 ### How would you change the API in order to achieve a much better scalable and maintainable application.
